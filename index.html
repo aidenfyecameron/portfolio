@@ -10,12 +10,13 @@
       --paper-bg: #000000;
       --text-main: #F7F7F7;
       --text-secondary: #666666;
-      --accent: #3c72A2; /* Professional classic blue */
+      --accent: #3c72A2; 
+      --accent-hover: #2b567a;
       --line-color: #000000;
+      --border-subtle: #1a1a1a; /* Added for structural visibility in dark mode */
       --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
-    
     * {
       box-sizing: border-box;
       margin: 0;
@@ -35,7 +36,8 @@
       margin: 0 auto;
       background-color: var(--paper-bg);
       border-radius: 12px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+      border: 1px solid var(--border-subtle);
       overflow: hidden;
     }
 
@@ -45,8 +47,8 @@
       justify-content: space-between;
       align-items: center;
       padding: 3rem 3rem 2rem 3rem;
-      background: linear-gradient(to right, #ffffff, #f8f9fa);
-      border-bottom: 1px solid var(--line-color);
+      background: var(--paper-bg);
+      border-bottom: 1px solid var(--border-subtle);
     }
 
     .header-content {
@@ -101,15 +103,15 @@
       height: 150px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      border: 4px solid white;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      border: 3px solid var(--accent);
     }
 
     /* Tab Navigation */
     .tab-nav {
       display: flex;
-      background-color: #fafbfc;
-      border-bottom: 1px solid var(--line-color);
+      background-color: var(--bg-color);
+      border-bottom: 1px solid var(--border-subtle);
       overflow-x: auto;
     }
 
@@ -128,8 +130,8 @@
     }
 
     .tab-button:hover {
-      color: var(--accent);
-      background-color: #f1f3f5;
+      color: var(--text-main);
+      background-color: #0a0a0a;
     }
 
     .tab-button.active {
@@ -170,7 +172,7 @@
     .entry {
       margin-bottom: 2rem;
       padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--line-color);
+      border-bottom: 1px solid var(--border-subtle);
     }
 
     .entry:last-child {
@@ -235,8 +237,8 @@
     }
 
     .skill-card {
-      background: #fafbfc;
-      border: 1px solid var(--line-color);
+      background: var(--bg-color);
+      border: 1px solid var(--border-subtle);
       padding: 1.5rem;
       border-radius: 8px;
     }
@@ -254,21 +256,20 @@
     }
 
     .skill-tag {
-      background: white;
-      border: 1px solid var(--line-color);
+      background: var(--paper-bg);
+      border: 1px solid var(--border-subtle);
       padding: 0.3rem 0.75rem;
       border-radius: 20px;
       font-size: 0.85rem;
-      color: var(--text-secondary);
-      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+      color: var(--text-main);
     }
 
     /* Footer */
     footer {
       text-align: center;
       padding: 2rem;
-      background: #fafbfc;
-      border-top: 1px solid var(--line-color);
+      background: var(--bg-color);
+      border-top: 1px solid var(--border-subtle);
       color: var(--text-secondary);
       font-size: 0.9rem;
     }
@@ -347,7 +348,7 @@
             <div class="entry-date">2022 – 2025</div>
           </div>
           <ul class="entry-details">
-            <li>Recipient of the AP Scholar with Distinction Award (2025).</li>
+            <li>Recipient of the <strong>AP Scholar with Distinction Award</strong> (2025).</li>
           </ul>
         </div>
       </div>
@@ -405,7 +406,7 @@
             <div class="entry-date">2023 – Present</div>
           </div>
           <ul class="entry-details">
-            <li>Affiliations: Strathcona High School, West Edmonton Juniors, Royal Glenora Club.</li>
+            <li><strong>Affiliations:</strong> Strathcona High School, West Edmonton Juniors, Royal Glenora Club.</li>
             <li>Mentored youth and high school competitive athletes through structured footwork drills, stroke mechanics, and match strategy development.</li>
           </ul>
         </div>
