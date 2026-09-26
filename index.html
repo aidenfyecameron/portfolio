@@ -15,6 +15,7 @@
       --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
+    
     * {
       box-sizing: border-box;
       margin: 0;
@@ -29,23 +30,23 @@
       padding: 2rem 1rem;
     }
 
-    .resume-container {
-      max-width: 850px;
+    .portfolio-container {
+      max-width: 900px;
       margin: 0 auto;
       background-color: var(--paper-bg);
-      padding: 4rem;
-      border-radius: 4px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
     }
 
-    /* Header Styling */
+    /* Pinned Header Styling */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid var(--text-main);
-      padding-bottom: 2rem;
-      margin-bottom: 2.5rem;
+      padding: 3rem 3rem 2rem 3rem;
+      background: linear-gradient(to right, #ffffff, #f8f9fa);
+      border-bottom: 1px solid var(--line-color);
     }
 
     .header-content {
@@ -53,7 +54,7 @@
     }
 
     h1 {
-      font-size: 2.8rem;
+      font-size: 2.6rem;
       font-weight: 700;
       letter-spacing: -0.02em;
       margin-bottom: 0.2rem;
@@ -61,299 +62,437 @@
     }
 
     .tagline {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       color: var(--accent);
-      font-weight: 500;
+      font-weight: 600;
       margin-bottom: 1rem;
     }
 
     .bio {
       color: var(--text-secondary);
       font-size: 1rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
       line-height: 1.5;
     }
 
     .contact-info {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.5rem;
-      font-size: 0.95rem;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+      font-weight: 500;
     }
 
     .contact-info a {
-      color: var(--text-main);
+      color: var(--text-secondary);
       text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-bottom 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: color 0.2s;
     }
 
     .contact-info a:hover {
-      border-bottom: 1px solid var(--accent);
       color: var(--accent);
     }
 
     .profile-img {
-      width: 140px;
-      height: 140px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border: 4px solid white;
     }
 
-    /* Section Styling */
-    section {
-      margin-bottom: 3rem;
+    /* Tab Navigation */
+    .tab-nav {
+      display: flex;
+      background-color: #fafbfc;
+      border-bottom: 1px solid var(--line-color);
+      overflow-x: auto;
+    }
+
+    .tab-button {
+      flex: 1;
+      background: none;
+      border: none;
+      padding: 1.25rem 1rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border-bottom: 3px solid transparent;
+      white-space: nowrap;
+    }
+
+    .tab-button:hover {
+      color: var(--accent);
+      background-color: #f1f3f5;
+    }
+
+    .tab-button.active {
+      color: var(--accent);
+      border-bottom: 3px solid var(--accent);
+      background-color: var(--paper-bg);
+    }
+
+    /* Tab Content Area */
+    .content-area {
+      padding: 3rem;
+      min-height: 400px;
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h2 {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: var(--accent);
-      border-bottom: 1px solid var(--line-color);
-      padding-bottom: 0.5rem;
+      color: var(--text-main);
       margin-bottom: 1.5rem;
     }
 
     /* Entry Layout */
     .entry {
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--line-color);
     }
 
     .entry:last-child {
       margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
     }
 
     .entry-header {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.5rem;
     }
 
     .entry-title {
       font-weight: 600;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
+      color: var(--text-main);
     }
 
     .entry-org {
-      font-weight: 400;
-      color: var(--text-secondary);
+      font-weight: 500;
+      color: var(--accent);
     }
 
     .entry-date {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: var(--text-secondary);
-      text-align: right;
+      font-weight: 500;
     }
 
     ul.entry-details {
-      list-style-type: disc;
-      padding-left: 1.25rem;
+      list-style-type: none;
       color: var(--text-secondary);
       font-size: 0.95rem;
     }
 
     ul.entry-details li {
-      margin-bottom: 0.3rem;
+      position: relative;
+      margin-bottom: 0.5rem;
+      padding-left: 1.25rem;
+    }
+
+    ul.entry-details li::before {
+      content: "•";
+      color: var(--accent);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
     }
 
     ul.entry-details li strong {
       color: var(--text-main);
     }
 
-    /* Skills Styling */
-    .skills-category {
-      margin-bottom: 1rem;
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
     }
 
-    .skills-category strong {
-      display: block;
+    .skill-card {
+      background: #fafbfc;
+      border: 1px solid var(--line-color);
+      padding: 1.5rem;
+      border-radius: 8px;
+    }
+
+    .skill-card h3 {
       font-size: 1.05rem;
-      margin-bottom: 0.2rem;
+      color: var(--text-main);
+      margin-bottom: 0.75rem;
     }
 
-    .skills-list {
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-tag {
+      background: white;
+      border: 1px solid var(--line-color);
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
       color: var(--text-secondary);
-      font-size: 0.95rem;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
     }
 
     /* Footer */
     footer {
       text-align: center;
-      margin-top: 4rem;
-      padding-top: 2rem;
+      padding: 2rem;
+      background: #fafbfc;
       border-top: 1px solid var(--line-color);
       color: var(--text-secondary);
       font-size: 0.9rem;
     }
 
-    .references {
-      font-style: italic;
-      margin-bottom: 0.5rem;
-    }
-
     /* Mobile Responsiveness */
-    @media (max-width: 700px) {
-      .resume-container {
-        padding: 2rem 1.5rem;
-      }
+    @media (max-width: 768px) {
       header {
         flex-direction: column-reverse;
-        align-items: flex-start;
+        text-align: center;
+        padding: 2rem 1.5rem;
         gap: 1.5rem;
+      }
+      .contact-info {
+        justify-content: center;
       }
       .entry-header {
         flex-direction: column;
       }
       .entry-date {
-        text-align: left;
         margin-bottom: 0.5rem;
+        color: var(--accent);
+      }
+      .content-area {
+        padding: 2rem 1.5rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="resume-container">
+  <div class="portfolio-container">
     
-    <!-- Header -->
+    <!-- Pinned Header -->
     <header>
       <div class="header-content">
         <h1>Aiden Cameron</h1>
         <div class="tagline">Engineering Undergraduate</div>
         <p class="bio">
-          Mechanical Engineering student at the University of Alberta with hands-on experience spanning computational tooling, energy modeling, industrial outage maintenance, and technical infrastructure.
+          Mechanical Engineering student at the University of Alberta bridging computational tooling, structural analysis, and industrial infrastructure.
         </p>
         <div class="contact-info">
-          <span>Edmonton, AB</span>
-          <a href="tel:7808978783">(780) 897-8783</a>
-          <a href="mailto:afcamer1@ualberta.ca">afcamer1@ualberta.ca</a>
-          <a href="mailto:fyecameron@gmail.com">fyecameron@gmail.com</a>
+          <span>📍 Edmonton, AB</span>
+          <a href="tel:7808978783">📞 (780) 897-8783</a>
+          <a href="mailto:afcamer1@ualberta.ca">✉️ afcamer1@ualberta.ca</a>
         </div>
       </div>
       <img src="6365.jpg" alt="Aiden Cameron" class="profile-img">
     </header>
 
-    <!-- Education Section -->
-    <section>
-      <h2>Education</h2>
+    <!-- Tab Navigation Bar -->
+    <nav class="tab-nav">
+      <button class="tab-button active" onclick="openTab(event, 'Education')">Education</button>
+      <button class="tab-button" onclick="openTab(event, 'Experience')">Experience</button>
+      <button class="tab-button" onclick="openTab(event, 'Leadership')">Leadership</button>
+      <button class="tab-button" onclick="openTab(event, 'Skills')">Skills & Tech</button>
+    </nav>
+
+    <!-- Content Area -->
+    <div class="content-area">
       
-      <div class="entry">
-        <div class="entry-header">
-          <div class="entry-title">Engineering Undergraduate <span class="entry-org">| University of Alberta</span></div>
-          <div class="entry-date">2025 – 2029</div>
+      <!-- EDUCATION TAB -->
+      <div id="Education" class="tab-content active">
+        <h2>Academic Background</h2>
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Engineering Undergraduate <span class="entry-org">| University of Alberta</span></div>
+            <div class="entry-date">2025 – 2029</div>
+          </div>
+          <ul class="entry-details">
+            <li>Pursuing a Bachelor's degree in Mechanical Engineering.</li>
+          </ul>
         </div>
-        <ul class="entry-details">
-          <li>Pursuing a degree in Mechanical Engineering in Edmonton, AB.</li>
-        </ul>
-      </div>
-
-      <div class="entry">
-        <div class="entry-header">
-          <div class="entry-title">High School Diploma <span class="entry-org">| Strathcona Composite High School</span></div>
-          <div class="entry-date">2022 – 2025</div>
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">High School Diploma <span class="entry-org">| Strathcona Composite</span></div>
+            <div class="entry-date">2022 – 2025</div>
+          </div>
+          <ul class="entry-details">
+            <li>Recipient of the AP Scholar with Distinction Award (2025).</li>
+          </ul>
         </div>
-        <ul class="entry-details">
-          <li>Recipient of the AP Scholar with Distinction Award (2025).</li>
-        </ul>
       </div>
-    </section>
 
-    <!-- Experience Section -->
-    <section>
-      <h2>Professional Experience</h2>
-
-      <div class="entry">
-        <div class="entry-header">
-          <div class="entry-title">Student Engineer <span class="entry-org">| FIORTECH</span></div>
-          <div class="entry-date">May 2026 – Present</div>
+      <!-- EXPERIENCE TAB -->
+      <div id="Experience" class="tab-content">
+        <h2>Professional Experience</h2>
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Student Engineer <span class="entry-org">| FIORTECH</span></div>
+            <div class="entry-date">May 2026 – Present</div>
+          </div>
+          <ul class="entry-details">
+            <li>Modeled residential electricity consumption estimates across EVs, hybrid systems, and heat pumps.</li>
+            <li>Deployed quantized open-source LLMs locally via LM Studio, optimizing VRAM across hardware limits.</li>
+            <li>Engineered structured prompts and function-calling to automate local file system operations and event alerts.</li>
+            <li>Designed prompt pipelines for structural engineering calculations and multi-agent simulation environments.</li>
+            <li>Architected and deployed responsive web interfaces with semantic HTML5, CSS3, and JavaScript.</li>
+            <li>Conducted on-site attic truss measurements and structural analysis alongside CAD-assisted drafting.</li>
+          </ul>
         </div>
-        <ul class="entry-details">
-          <li>Modeled and calculated residential electricity consumption estimates across electric vehicles (EVs), hybrid systems, and heat pumps.</li>
-          <li>Deployed quantized open-source LLMs locally via LM Studio, optimizing inference parameters and VRAM allocation across hardware constraints.</li>
-          <li>Engineered structured system prompts and function-calling workflows to automate file system read/write operations and trigger email event alerts.</li>
-          <li>Designed automated prompt pipelines for specialized structural engineering calculations and multi-agent simulation environments.</li>
-          <li>Architected and deployed responsive web interfaces with semantic HTML5, modern CSS3, and JavaScript ensuring accessibility and cross-browser support.</li>
-          <li>Conducted on-site attic truss measurements and performed structural analysis alongside CAD-assisted drafting to verify load-bearing integrity.</li>
-        </ul>
-      </div>
 
-      <div class="entry">
-        <div class="entry-header">
-          <div class="entry-title">Shutdown Wash Crew & Safety Tank Watch <span class="entry-org">| WestRock</span></div>
-          <div class="entry-date">May 2026</div>
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Shutdown Wash Crew & Safety Watch <span class="entry-org">| WestRock</span></div>
+            <div class="entry-date">May 2026</div>
+          </div>
+          <ul class="entry-details">
+            <li>Executed high-volume washdowns and interior descaling inside Recovery Boiler 2 using industrial fire hoses under full-body harness and continuous supplied-air respirators.</li>
+            <li>Served as designated Confined Space Safety Tank Watch; monitored entrant logs and hazardous atmospheres.</li>
+            <li>Conducted daily Field-Level Hazard Assessments (FLHAs) and pre-shift Lockout/Tagout (LOTO) tailgates.</li>
+            <li>Performed waste remediation across Unit 1, developing familiarity with heavy piping and boiler auxiliary infrastructure.</li>
+          </ul>
         </div>
-        <ul class="entry-details">
-          <li>Executed high-volume washdowns, ash/slag shoveling, and interior descaling inside Recovery Boiler 2 using industrial fire hoses under full-body harness and continuous supplied-air respirators.</li>
-          <li>Served as designated Confined Space Safety Tank Watch; closely monitored entrant logs and hazardous atmospheric levels.</li>
-          <li>Conducted daily Field-Level Hazard Assessments (FLHAs) and pre-shift tailgates regarding Lockout/Tagout (LOTO) boundaries and plant hazards.</li>
-          <li>Performed waste remediation and housekeeping across Unit 1, developing working familiarity with heavy pulp and paper piping, pumps, and boiler auxiliary infrastructure.</li>
-        </ul>
-      </div>
 
-      <div class="entry">
-        <div class="entry-header">
-          <div class="entry-title">Renovation Assistant <span class="entry-org">| CAIRN</span></div>
-          <div class="entry-date">Edmonton, AB</div>
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Renovation Assistant <span class="entry-org">| CAIRN</span></div>
+            <div class="entry-date">Edmonton, AB</div>
+          </div>
+          <ul class="entry-details">
+            <li>Configured AvertX security server hardware and integrated digital IP surveillance cameras.</li>
+            <li>Ran and terminated Cat6 Ethernet cabling infrastructure across facility layouts.</li>
+            <li>Assisted in structural perimeter fencing fabrication/welding and completed interior subfloor replacements.</li>
+          </ul>
         </div>
-        <ul class="entry-details">
-          <li>Configured and deployed AvertX security server hardware and integrated digital IP surveillance cameras.</li>
-          <li>Ran and terminated Cat6 Ethernet cabling infrastructure across facility layouts.</li>
-          <li>Assisted in structural perimeter fencing fabrication and welding, as well as interior subfloor and flooring replacements.</li>
-        </ul>
       </div>
-    </section>
 
-    <!-- Leadership Section -->
-    <section>
-      <h2>Leadership & Volunteering</h2>
-
-      <div class="entry">
-        <div class="entry-header">
-          <div class="entry-title">Volunteer Badminton Coach</div>
-          <div class="entry-date">2023 – Present</div>
+      <!-- LEADERSHIP TAB -->
+      <div id="Leadership" class="tab-content">
+        <h2>Leadership & Volunteering</h2>
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Volunteer Badminton Coach</div>
+            <div class="entry-date">2023 – Present</div>
+          </div>
+          <ul class="entry-details">
+            <li>Affiliations: Strathcona High School, West Edmonton Juniors, Royal Glenora Club.</li>
+            <li>Mentored youth and high school competitive athletes through structured footwork drills, stroke mechanics, and match strategy development.</li>
+          </ul>
         </div>
-        <ul class="entry-details">
-          <li>Locations: Strathcona High School, West Edmonton Juniors, Royal Glenora Club.</li>
-          <li>Mentored youth and high school competitive athletes through structured footwork drills, stroke mechanics, and match strategy development.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section>
-      <h2>Skills & Qualifications</h2>
-
-      <div class="skills-category">
-        <strong>Software & Computational Tools</strong>
-        <div class="skills-list">Python/Scripting, CAD, Truss Analysis Software, HTML5/CSS3/JavaScript, LM Studio (Local LLM Deployment), Cloudflare, Formspree API.</div>
       </div>
 
-      <div class="skills-category">
-        <strong>Industrial & Hands-On Skills</strong>
-        <div class="skills-list">Confined Space Safety Watch, Supplied Air Systems, Structural Measurements, Network Cabling (Ethernet/IP Cameras), LOTO Protocols, Welding & Fabrication Assistance.</div>
+      <!-- SKILLS TAB -->
+      <div id="Skills" class="tab-content">
+        <h2>Technical Arsenal & Qualifications</h2>
+        <div class="skills-grid">
+          
+          <div class="skill-card">
+            <h3>Software & Scripting</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">HTML5 / CSS3</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">LM Studio / Local LLMs</span>
+              <span class="skill-tag">Cloudflare</span>
+              <span class="skill-tag">Formspree API</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h3>Engineering & Industrial</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">CAD</span>
+              <span class="skill-tag">Truss Analysis</span>
+              <span class="skill-tag">Structural Measurement</span>
+              <span class="skill-tag">Confined Space Safety</span>
+              <span class="skill-tag">Supplied Air Systems</span>
+              <span class="skill-tag">LOTO Protocols</span>
+              <span class="skill-tag">Welding</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h3>Certifications</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">WHMIS (2025)</span>
+              <span class="skill-tag">H2S Alive (May 2026)</span>
+              <span class="skill-tag">Class 5 Driver's Licence</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h3>Languages</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">English (Fluent)</span>
+              <span class="skill-tag">Simplified Chinese (Intermediate)</span>
+              <span class="skill-tag">Korean (Beginner)</span>
+            </div>
+          </div>
+
+        </div>
       </div>
 
-      <div class="skills-category">
-        <strong>Languages</strong>
-        <div class="skills-list">English (Native), Simplified Chinese (Intermediate), Korean (Beginner).</div>
-      </div>
-
-      <div class="skills-category">
-        <strong>Certifications & Licenses</strong>
-        <div class="skills-list">WHMIS (2025), H2S Alive (May 2026), Class 5 Alberta Driver's Licence (2024).</div>
-      </div>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer>
-      <div class="references">References available upon request.</div>
-      <div>© 2026 Aiden Cameron • MECE 200</div>
+      <div>References available upon request.</div>
+      <div style="margin-top: 0.5rem; font-size: 0.85rem;">© 2026 Aiden Cameron • Built for MECE 200</div>
     </footer>
 
   </div>
+
+  <!-- JavaScript for Tabs -->
+  <script>
+    function openTab(evt, tabName) {
+      // Hide all tab content
+      let i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tab-content");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].classList.remove("active");
+      }
+      
+      // Remove the active class from all tab buttons
+      tablinks = document.getElementsByClassName("tab-button");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+      }
+      
+      // Show the current tab and add an "active" class to the button
+      document.getElementById(tabName).classList.add("active");
+      evt.currentTarget.classList.add("active");
+    }
+  </script>
 
 </body>
 </html>
