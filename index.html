@@ -50,6 +50,22 @@
       box-shadow: 0 8px 24px rgba(0,0,0,0.25);
     }
 
+    .header-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .profile-img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+      flex-shrink: 0;
+    }
+
     .header-top {
       display: flex;
       justify-content: space-between;
@@ -244,6 +260,11 @@
       h1 {
         font-size: 1.85rem;
       }
+      .header-wrapper {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 1.25rem;
+      }
     }
   </style>
 </head>
@@ -253,15 +274,21 @@
 
     <!-- Header / Brand & Contact -->
     <header>
-      <div class="header-top">
+      <div class="header-wrapper">
         <div>
-          <h1>Aiden Cameron</h1>
-          <div class="subtitle">Undergraduate Engineering Student</div>
+          <div class="header-top">
+            <div>
+              <h1>Aiden Cameron</h1>
+              <div class="subtitle">Undergraduate Engineering Student</div>
+            </div>
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 580px;">
+            Mechanical Engineering undergraduate at the University of Alberta with hands-on experience spanning computational tooling, energy modeling, industrial outage maintenance, and technical infrastructure.
+          </p>
         </div>
+        <!-- Profile Image -->
+        <img src="6365.jpg" alt="Aiden Cameron" class="profile-img">
       </div>
-      <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 680px;">
-        Mechanical Engineering undergraduate at the University of Alberta with hands-on experience spanning local computational tooling, energy modeling, industrial outage maintenance, and technical infrastructure.
-      </p>
       
       <div class="contact-bar">
         <div class="contact-item">
