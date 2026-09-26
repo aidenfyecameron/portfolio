@@ -1,9 +1,442 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>My CV</title>
-  </head>
-  <body>
-    <h1>CV In Progress</h1>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aiden Cameron | Mechanical Engineering CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface-border: #30363d;
+      --text-main: #f0f6fc;
+      --text-muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-glow: rgba(88, 166, 255, 0.15);
+      --tag-bg: #21262d;
+      --tag-border: #363b42;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font);
+      line-height: 1.6;
+      padding: 2.5rem 1.25rem;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    /* Hero & Header */
+    header {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-top: 0.25rem;
+    }
+
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.5rem;
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--surface-border);
+      font-size: 0.95rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-muted);
+    }
+
+    .contact-item a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+
+    /* Section Structure */
+    section {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 1.75rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--surface-border);
+    }
+
+    .section-title span {
+      color: var(--accent);
+    }
+
+    /* Experience & Education Item */
+    .timeline-item {
+      margin-bottom: 1.75rem;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .item-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .item-org {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .item-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    ul.item-bullets {
+      list-style-type: disc;
+      padding-left: 1.25rem;
+      margin-top: 0.6rem;
+      color: var(--text-muted);
+    }
+
+    ul.item-bullets li {
+      margin-bottom: 0.4rem;
+      line-height: 1.55;
+    }
+
+    ul.item-bullets li strong {
+      color: var(--text-main);
+    }
+
+    /* Skills & Badges Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .skill-block {
+      background: var(--tag-bg);
+      border: 1px solid var(--tag-border);
+      border-radius: 8px;
+      padding: 1.1rem;
+    }
+
+    .skill-block-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 0.75rem;
+    }
+
+    .badge-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      padding: 0.3rem 0.65rem;
+      border-radius: 6px;
+      background: rgba(88, 166, 255, 0.08);
+      color: var(--accent);
+      border: 1px solid rgba(88, 166, 255, 0.2);
+    }
+
+    .badge.secondary {
+      background: #1f242c;
+      color: #c9d1d9;
+      border-color: #3b424b;
+    }
+
+    /* Footer / References */
+    footer {
+      text-align: center;
+      padding: 1.5rem 0;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    footer p.ref {
+      font-style: italic;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1.25rem 0.75rem;
+      }
+      header, section {
+        padding: 1.5rem 1.25rem;
+      }
+      h1 {
+        font-size: 1.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Header / Brand & Contact -->
+    <header>
+      <div class="header-top">
+        <div>
+          <h1>Aiden Cameron</h1>
+          <div class="subtitle">Undergraduate Engineering Student</div>
+        </div>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 680px;">
+        Mechanical Engineering undergraduate at the University of Alberta with hands-on experience spanning local computational tooling, energy modeling, industrial outage maintenance, and technical infrastructure.
+      </p>
+      
+      <div class="contact-bar">
+        <div class="contact-item">
+          <span>📍</span> Edmonton, AB
+        </div>
+        <div class="contact-item">
+          <span>📞</span> <a href="tel:7808978783">(780) 897-8783</a>
+        </div>
+        <div class="contact-item">
+          <span>✉️</span> <a href="mailto:afcamer1@ualberta.ca">afcamer1@ualberta.ca</a>
+        </div>
+        <div class="contact-item">
+          <span>✉️</span> <a href="mailto:fyecameron@gmail.com">fyecameron@gmail.com</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Education Section -->
+    <section id="education">
+      <h2 class="section-title"><span>01.</span> Education</h2>
+
+      <div class="timeline-item">
+        <div class="item-header">
+          <div>
+            <span class="item-title">Engineering Undergraduate</span> — 
+            <span class="item-org">University of Alberta</span>
+          </div>
+          <span class="item-meta">2025 – 2029 | Edmonton, AB</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="item-header">
+          <div>
+            <span class="item-title">High School Diploma</span> — 
+            <span class="item-org">Strathcona Composite High School</span>
+          </div>
+          <span class="item-meta">2022 – 2025 | Edmonton, AB</span>
+        </div>
+        <ul class="item-bullets">
+          <li>Recipient of the <strong>AP Scholar with Distinction Award</strong> (2025).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="experience">
+      <h2 class="section-title"><span>02.</span> Experience</h2>
+
+      <div class="timeline-item">
+        <div class="item-header">
+          <div>
+            <span class="item-title">Student Engineer</span> — 
+            <span class="item-org">FIORTECH</span>
+          </div>
+          <span class="item-meta">May 2026 – Present | Edmonton, AB</span>
+        </div>
+        <ul class="item-bullets">
+          <li>Modeled and calculated residential electricity consumption estimates across electric vehicles (EVs), hybrid systems, and heat pumps.</li>
+          <li>Deployed quantized open-source LLMs locally via LM Studio, optimizing inference parameters and VRAM allocation across hardware constraints.</li>
+          <li>Engineered structured system prompts and function-calling workflows to automate file system read/write operations and trigger email event alerts.</li>
+          <li>Designed automated prompt pipelines for specialized structural engineering calculations and multi-agent simulation environments.</li>
+          <li>Architected and deployed responsive web interfaces with semantic HTML5, modern CSS3, and JavaScript ensuring accessibility and cross-browser support.</li>
+          <li>Conducted on-site attic truss measurements and performed structural analysis alongside CAD-assisted drafting to verify load-bearing integrity.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="item-header">
+          <div>
+            <span class="item-title">Shutdown Wash Crew & Safety Tank Watch</span> — 
+            <span class="item-org">WestRock</span>
+          </div>
+          <span class="item-meta">May 2026 | Grande Prairie, AB</span>
+        </div>
+        <ul class="item-bullets">
+          <li>Executed high-volume washdowns, ash/slag shoveling, and interior descaling inside Recovery Boiler 2 using industrial fire hoses under full-body harness and continuous supplied-air airline respirators.</li>
+          <li>Served as designated Confined Space Safety Tank Watch; closely monitored entrant logs and hazardous atmospheric levels.</li>
+          <li>Conducted daily Field-Level Hazard Assessments (FLHAs) and pre-shift tailgates regarding Lockout/Tagout (LOTO) boundaries and plant hazards.</li>
+          <li>Performed waste remediation and housekeeping across Unit 1, developing working familiarity with heavy pulp and paper piping, pumps, and boiler auxiliary infrastructure.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="item-header">
+          <div>
+            <span class="item-title">Renovation Assistant</span> — 
+            <span class="item-org">CAIRN</span>
+          </div>
+          <span class="item-meta">Edmonton, AB</span>
+        </div>
+        <ul class="item-bullets">
+          <li>Configured and deployed AvertX security server hardware and integrated digital IP surveillance cameras.</li>
+          <li>Ran and terminated Cat6 Ethernet cabling infrastructure across facility layouts.</li>
+          <li>Assisted in structural perimeter fencing fabrication and welding, as well as interior subfloor and flooring replacements.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Volunteer & Leadership Section -->
+    <section id="volunteer">
+      <h2 class="section-title"><span>03.</span> Leadership & Volunteer Experience</h2>
+
+      <div class="timeline-item">
+        <div class="item-header">
+          <div>
+            <span class="item-title">Volunteer Badminton Coach</span> — 
+            <span class="item-org">Strathcona High School, West Edmonton Juniors, Royal Glenora Club</span>
+          </div>
+          <span class="item-meta">2023 – Present | Edmonton, AB</span>
+        </div>
+        <ul class="item-bullets">
+          <li>Mentored youth and high school competitive athletes through structured footwork drills, stroke mechanics, and match strategy development.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Technical Skills, Languages & Certifications -->
+    <section id="skills">
+      <h2 class="section-title"><span>04.</span> Technical Skills & Qualifications</h2>
+
+      <div class="skills-grid">
+        <div class="skill-block">
+          <div class="skill-block-title">Software & Computational</div>
+          <div class="badge-container">
+            <span class="badge">Python</span>
+            <span class="badge">CAD</span>
+            <span class="badge">Truss Analysis</span>
+            <span class="badge">HTML5 / CSS3</span>
+            <span class="badge">JavaScript</span>
+            <span class="badge">LM Studio / Local LLMs</span>
+            <span class="badge">Cloudflare</span>
+            <span class="badge">Formspree API</span>
+          </div>
+        </div>
+
+        <div class="skill-block">
+          <div class="skill-block-title">Industrial & Hands-On</div>
+          <div class="badge-container">
+            <span class="badge secondary">Confined Space Safety</span>
+            <span class="badge secondary">Supplied Air Systems</span>
+            <span class="badge secondary">LOTO Protocols</span>
+            <span class="badge secondary">Cat6 Network Cabling</span>
+            <span class="badge secondary">Structural Measurements</span>
+            <span class="badge secondary">Welding / Fabrication Assist</span>
+          </div>
+        </div>
+
+        <div class="skill-block">
+          <div class="skill-block-title">Languages</div>
+          <div class="badge-container">
+            <span class="badge secondary">English (Native / Fluent)</span>
+            <span class="badge secondary">Simplified Chinese (Intermediate)</span>
+            <span class="badge secondary">Korean (Beginner)</span>
+          </div>
+        </div>
+
+        <div class="skill-block">
+          <div class="skill-block-title">Safety Certifications & Licenses</div>
+          <div class="badge-container">
+            <span class="badge secondary">WHMIS (2025)</span>
+            <span class="badge secondary">H2S Alive (May 2026)</span>
+            <span class="badge secondary">Alberta Class 5 Driver's Licence</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer / References -->
+    <footer>
+      <p class="ref">References available upon request</p>
+      <p>© 2026 Aiden Cameron • Built for MECE 200</p>
+    </footer>
+
+  </div>
+
+</body>
 </html>
